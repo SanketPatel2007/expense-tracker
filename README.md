@@ -1,32 +1,42 @@
+# 💰 Expense Tracker (CLI + PostgreSQL)
 
-# expense-tracker
+## 🚀 Overview
+A command-line based expense tracker built with Python and PostgreSQL, supporting full CRUD operations.
 
-# Expense Tracker (CLI + PostgreSQL)
-
-## Description
-A command-line based expense tracker that stores data in PostgreSQL and supports full CRUD operations.
-
-## Features
+## ⚙️ Features
 - Add expense
-- View expenses
+- View all expenses
 - Update expense
 - Delete expense
-- Calculate total expenses
+- Calculate total spending
 
-## Tech Stack
+## 🛠 Tech Stack
 - Python
 - PostgreSQL
 - psycopg2
 
-## How to Run
+## 📂 Project Structure
+expense-tracker/
+│── main.py  
+│── requirements.txt  
+│── README.md  
+
+## ▶️ How to Run
 1. Install dependencies:
    pip install -r requirements.txt
 
 2. Setup PostgreSQL and create database
 
-3. Run:
+3. Update DB credentials in main.py
+
+4. Run:
    python main.py
 
+## 📌 Future Improvements
+- Convert to FastAPI (REST API)
+- Add frontend UI
+- Deploy online
 
-Update database credentials inside main.py before running.
+## Demo
+<img width="777" height="1009" alt="Screenshot 2026-03-21 175343" src="https://github.com/user-attachments/assets/e429c20a-e911-48b5-9f99-6b095860a7db" />
 
