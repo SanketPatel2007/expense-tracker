@@ -56,9 +56,6 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🌐 Live API
-(Add after deployment)
-
 ## 📌 API Endpoints
 
 - `GET /expense` → Get all expense
