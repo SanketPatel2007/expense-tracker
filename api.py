@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from db import get_connection
-from models import Expense
+from models import Expense,ExpenseResponse
+from fastapi import HTTPException
 
 app = FastAPI()
 
@@ -10,7 +11,7 @@ def home():
     return {"message": "API is running"}
 
 
-@app.get("/expense")
+@app.get("/expense",response_model=list[ExpenseResponse])
 def get_expense():
     conn=get_connection()
     cur=conn.cursor()
@@ -25,7 +26,7 @@ def get_expense():
         for r in rows
     ]
 
-@app.post("/expense")
+@app.post("/expense",status_code=201)
 def add_expense(name:str,amount:float):
     conn=get_connection()
     cur=conn.cursor()
@@ -51,7 +52,7 @@ def delete_expense(exp_id:int):
     conn.close()
 
     if cur.rowcount==0:
-        return {"error": "No record found"}
+        raise HTTPException(status_code=404, detail="Expense not found")
     else:
         return{"message":"Deleted"}
     
@@ -70,6 +71,6 @@ def update_expence(exp_id:int,name:str,amount:float):
 
 
     if cur.rowcount==0:
-        return{"error": "No record found"}
+        raise HTTPException(status_code=404, detail="Expense not found")
     else:
         return{"message":"Updted"}
