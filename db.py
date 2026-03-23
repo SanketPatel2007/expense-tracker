@@ -14,3 +14,5 @@ def get_connection():
         port=os.getenv("DB_PORT")
     )
 
+def get_connection():
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
