@@ -13,6 +13,3 @@ def get_connection():
         password=os.getenv("DB_PASS"),
         port=os.getenv("DB_PORT")
     )
-
-def get_connection():
-    return psycopg2.connect(os.getenv("DATABASE_URL"))
