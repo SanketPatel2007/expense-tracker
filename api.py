@@ -93,3 +93,15 @@ def init_db():
     conn.close()
 
     return {"message": "DB initialized"}
+
+@app.get("/debug-db")
+def debug_db():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    try:
+        cur.execute("SELECT version();")
+        version = cur.fetchone()
+        return {"status": "connected", "version": version}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
