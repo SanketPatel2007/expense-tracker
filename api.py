@@ -74,3 +74,22 @@ def update_expence(exp_id:int,name:str,amount:float):
         raise HTTPException(status_code=404, detail="Expense not found")
     else:
         return{"message":"Updted"}
+    
+@app.get("/init-db")
+def init_db():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS expenses (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(40),
+        amount FLOAT
+    )
+    """)
+    conn.commit()
+
+    cur.close()
+    conn.close()
+
+    return {"message": "DB initialized"}

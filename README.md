@@ -17,35 +17,68 @@ A command-line based expense tracker built with Python and PostgreSQL, supportin
 
 ## 📂 Project Structure
 expense-tracker/
-│── main.py  
-│── requirements.txt  
-│── README.md  
+│── api.py
+│── db.py
+│── models.py
+│── requirements.txt
+│── README.md
+│── .gitignore 
 
-## ▶️ How to Run
-1. Install dependencies:
-   pip install -r requirements.txt
+## ▶️ How to Run Locally
+ 1. Clone the repository
 
-2. Setup PostgreSQL and create database
+git clone URL
+cd expense-tracker
 
-3. Update DB credentials in main.py
+ 2. Install dependencies
 
-4. Run:
-   python main.py
+pip install -r requirements.txt
 
-## 📌 Future Improvements
-- Convert to FastAPI (REST API)
-- Add frontend UI
-- Deploy online
+ 3. Setup PostgreSQL
 
-## Demo
-<img width="777" height="1009" alt="Screenshot 2026-03-21 175343" src="https://github.com/user-attachments/assets/e429c20a-e911-48b5-9f99-6b095860a7db" />
+Create a database and update credentials in `.env`
 
-## 🔐 Environment Variables
+ 4. Create `.env` file
 
-Create a `.env` file:
+DB_HOST=localhost
+DB_NAME=1st
+DB_USER=postgres
+DB_PASS=PASSWORD
+DB_PORT=5432
 
-DB_HOST=localhost  
-DB_NAME=1st  
-DB_USER=postgres  
-DB_PASS=your_password  
-DB_PORT=5432  
+5. Run the server
+
+python -m uvicorn api:app --reload
+
+6. Open API Docs
+
+http://127.0.0.1:8000/docs
+
+---
+
+## 🌐 Live API
+(Add after deployment)
+
+## 📌 API Endpoints
+
+- `GET /expense` → Get all expense
+- `POST /expense` → Add expense  
+- `PUT /expense/{id}` → Update expense  
+- `DELETE /expense/{id}` → Delete expense  
+
+---
+
+## 📸 Demo
+![Swagger UI](images/screenshot.png)
+
+---
+
+## 🚀 Future Improvements
+- Authentication (JWT)
+- Frontend integration
+- Deployment improvements
+
+---
+
+## 👨‍💻 Author
+Sanket Patel
