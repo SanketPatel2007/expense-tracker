@@ -40,3 +40,12 @@ expense-tracker/
 ## Demo
 <img width="777" height="1009" alt="Screenshot 2026-03-21 175343" src="https://github.com/user-attachments/assets/e429c20a-e911-48b5-9f99-6b095860a7db" />
 
+## 🔐 Environment Variables
+
+Create a `.env` file:
+
+DB_HOST=localhost  
+DB_NAME=1st  
+DB_USER=postgres  
+DB_PASS=your_password  
+DB_PORT=5432  
